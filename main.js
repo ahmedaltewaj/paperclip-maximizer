@@ -709,11 +709,15 @@ class CommunityManager {
 class QuantumCasinoManager {
     constructor(game) {
         this.game = game;
+        this.active = true;
         this.gamesPlayed = 0;
         this.statistics = { totalWins: 0, totalLosses: 0, jackpots: 0 };
+        this.jackpotPool = 1000000;
     }
 
     tick() {
+        // Slowly increase jackpot pool over time
+        this.jackpotPool += this.game.resources.paperclips * 0.0001;
     }
 
     showCasinoModal() {
@@ -790,8 +794,11 @@ class QuantumCasinoManager {
 class MarketTradingManager {
     constructor(game) {
         this.game = game;
+        this.active = true;
         this.prices = new Map();
         this.initPrices();
+        this.priceHistory = [];
+        this.tickCounter = 0;
     }
 
     initPrices() {
@@ -800,6 +807,22 @@ class MarketTradingManager {
     }
 
     tick() {
+        this.tickCounter++;
+        if (this.tickCounter % 600 === 0) {
+            this.fluctuatePrices();
+        }
+    }
+
+    fluctuatePrices() {
+        const matterPrice = this.prices.get('matter');
+        const energyPrice = this.prices.get('energy');
+        const fluctuation = 0.95 + Math.random() * 0.1;
+        matterPrice.buy *= fluctuation;
+        matterPrice.sell = matterPrice.buy * 0.8;
+        energyPrice.buy *= fluctuation;
+        energyPrice.sell = energyPrice.buy * 0.8;
+        this.priceHistory.push({ timestamp: Date.now(), matter: matterPrice.buy, energy: energyPrice.buy });
+        if (this.priceHistory.length > 100) this.priceHistory.shift();
     }
 
     showMarketModal() {
@@ -1267,6 +1290,7 @@ class CrisisEventsManager {
 class EngineerTrainingManager {
     constructor(game) {
         this.game = game;
+        this.active = true;
         this.engineerTypes = new Map();
         this.hiredEngineers = new Map();
         this.totalExperience = 0;
@@ -5031,6 +5055,7 @@ class ResearchInstituteManager {
 class PantheonManager {
     constructor(game) {
         this.game = game;
+        this.active = true;
         this.unlocked = false;
         this.divinityLevel = 0;
         this.maxDivinityLevel = 10;
