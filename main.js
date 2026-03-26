@@ -975,6 +975,7 @@ class QuantumAlchemyManager {
 class RivalAIFactionsManager {
     constructor(game) {
         this.game = game;
+        this.active = true;
         this.factions = new Map();
         this.discoveredFactions = new Set();
         this.warsWon = 0;
@@ -1113,6 +1114,7 @@ class RivalAIFactionsManager {
 class PaperclipMuseumManager {
     constructor(game) {
         this.game = game;
+        this.active = true;
         this.collections = new Map();
         this.unlockedDesigns = new Set();
         this.craftedDesigns = new Set();
@@ -1189,6 +1191,7 @@ class PaperclipMuseumManager {
 class CrisisEventsManager {
     constructor(game) {
         this.game = game;
+        this.active = true;
         this.activeCrisis = null;
         this.crisisHistory = [];
         this.defenseSystems = {
@@ -6941,6 +6944,7 @@ class SeasonPassManager {
 class PetManager {
     constructor(game) {
         this.game = game;
+        this.active = true;
         this.unlockedPets = new Map();
         this.activePet = null;
         this.petDefinitions = this.initPetDefinitions();
@@ -9181,6 +9185,7 @@ class PetArenaManager {
 class WorldBossManager {
     constructor(game) {
         this.game = game;
+        this.active = true;
         this.activeBoss = null;
         this.bossHistory = [];
         this.raidStats = { totalRaids: 0, successful: 0, failed: 0, totalDamage: 0 };
