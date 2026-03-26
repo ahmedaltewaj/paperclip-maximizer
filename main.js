@@ -10716,6 +10716,10 @@ class PaperclipMaximizer {
         document.getElementById('export-close-btn')?.addEventListener('click', () => {
             document.getElementById('export-modal')?.classList.remove('show');
         });
+
+        document.getElementById('export-copy-btn')?.addEventListener('click', () => {
+            this.copyExportToClipboard();
+        });
         
         document.getElementById('import-close-btn')?.addEventListener('click', () => {
             document.getElementById('import-modal')?.classList.remove('show');
@@ -10799,6 +10803,24 @@ class PaperclipMaximizer {
 
         localStorage.setItem(this.SAVE_KEY, JSON.stringify(saveData));
         this.log('Game saved');
+        this.updateAutoSaveStatus();
+    }
+
+    updateAutoSaveStatus() {
+        const statusEl = document.getElementById('auto-save-status');
+        if (!statusEl) return;
+
+        const saveText = statusEl.querySelector('.save-text');
+        if (saveText) {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            saveText.textContent = `Saved at ${timeStr}`;
+        }
+
+        statusEl.classList.add('saving');
+        setTimeout(() => {
+            statusEl.classList.remove('saving');
+        }, 1000);
     }
 
     loadGame() {
@@ -10920,14 +10942,55 @@ class PaperclipMaximizer {
         const saveData = localStorage.getItem(this.SAVE_KEY);
         const modal = document.getElementById('export-modal');
         const textarea = document.getElementById('export-textarea');
-        
+
         if (textarea && saveData) {
-            textarea.value = btoa(saveData);
+            try {
+                const encoded = btoa(encodeURIComponent(saveData));
+                textarea.value = encoded;
+            } catch (e) {
+                console.error('Failed to encode save data:', e);
+                textarea.value = 'Error encoding save data';
+            }
         }
-        
+
         if (modal) modal.classList.add('show');
     }
-    
+
+    async copyExportToClipboard() {
+        const textarea = document.getElementById('export-textarea');
+        const copyBtn = document.getElementById('export-copy-btn');
+
+        if (!textarea?.value) {
+            this.showToast('No save data to copy!', 'error');
+            return;
+        }
+
+        try {
+            await navigator.clipboard.writeText(textarea.value);
+
+            const originalText = copyBtn.textContent;
+            copyBtn.textContent = '✓ Copied!';
+            copyBtn.classList.add('success');
+
+            this.showToast('Save data copied to clipboard!', 'success');
+
+            setTimeout(() => {
+                copyBtn.textContent = originalText;
+                copyBtn.classList.remove('success');
+            }, 2000);
+        } catch (err) {
+            console.error('Failed to copy:', err);
+
+            try {
+                textarea.select();
+                document.execCommand('copy');
+                this.showToast('Save data copied to clipboard!', 'success');
+            } catch (fallbackErr) {
+                this.showToast('Failed to copy. Please manually select and copy.', 'error');
+            }
+        }
+    }
+
     showImportModal() {
         const modal = document.getElementById('import-modal');
         if (modal) modal.classList.add('show');
@@ -10935,30 +10998,61 @@ class PaperclipMaximizer {
 
     importSave() {
         const textarea = document.getElementById('import-textarea');
-        const saveString = textarea?.value?.trim();
+        const inputString = textarea?.value?.trim();
 
-        if (!saveString) {
+        if (!inputString) {
             this.showToast('Please paste a save string first!', 'error');
             return;
         }
 
+        let decodedString;
         try {
-            const saveData = JSON.parse(saveString);
+            decodedString = decodeURIComponent(atob(inputString));
+        } catch (e) {
+            decodedString = inputString;
+        }
+
+        try {
+            const saveData = JSON.parse(decodedString);
 
             if (!this.validateSaveData(saveData)) {
                 this.showToast('Invalid save data format!', 'error');
                 return;
             }
 
-            if (confirm('This will overwrite your current progress. Continue?')) {
-                localStorage.setItem(this.SAVE_KEY, saveString);
-                this.showToast('Save imported successfully! Reloading...', 'success');
-                setTimeout(() => location.reload(), 1500);
-            }
+            this.showImportConfirmModal(decodedString);
         } catch (e) {
             this.showToast('Invalid save string! Make sure you copied it correctly.', 'error');
             console.error('Import error:', e);
         }
+    }
+
+    showImportConfirmModal(saveString) {
+        const modal = document.createElement('div');
+        modal.className = 'modal show';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>⚠️ Confirm Import</h2>
+                    <button class="modal-close" onclick="this.closest('.modal').remove()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>This will overwrite your current progress.</p>
+                    <p style="color: var(--danger); margin-top: 1rem;"><strong>All current save data will be replaced!</strong></p>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="game.executeImportSave('${saveString.replace(/'/g, "\\'")}'); this.closest('.modal').remove();" class="danger">Yes, Import Save</button>
+                    <button onclick="this.closest('.modal').remove();" class="secondary">Cancel</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    }
+
+    executeImportSave(saveString) {
+        localStorage.setItem(this.SAVE_KEY, saveString);
+        this.showToast('Save imported successfully! Reloading...', 'success');
+        setTimeout(() => location.reload(), 1500);
     }
 
     validateSaveData(data) {
