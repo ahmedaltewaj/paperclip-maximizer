@@ -2110,7 +2110,15 @@ class PrestigeShopManager {
         }
         return effects;
     }
-    
+
+    getStartingResources() {
+        const effects = this.getTotalEffects();
+        return {
+            matter: effects.startingMatter || 0,
+            energy: effects.startingEnergy || 0
+        };
+    }
+
     showShopModal() {
         const modal = document.createElement('div');
         modal.className = 'modal show';
@@ -4768,6 +4776,70 @@ class ResearchInstituteManager {
     }
 
     applyTechEffects(tech) {
+        if (!tech || !tech.effect) return;
+        
+        const effect = tech.effect;
+        const game = this.game;
+        
+        // Apply production multipliers
+        if (effect.production) {
+            game.multipliers.production *= (1 + effect.production);
+        }
+        
+        // Apply clip efficiency - boosts all clip production rates
+        if (effect.clipEfficiency) {
+            game.multipliers.production *= (1 + effect.clipEfficiency);
+        }
+        
+        // Apply matter efficiency - reduces matter consumption
+        if (effect.matterEfficiency) {
+            game.multipliers.matterAcquisition *= (1 + effect.matterEfficiency);
+        }
+        
+        // Apply energy efficiency - reduces energy consumption
+        if (effect.energyEfficiency) {
+            // Energy consumption efficiency would need a separate multiplier
+            // For now, boost energy generation
+            game.multipliers.energyGeneration *= (1 + effect.energyEfficiency);
+        }
+        
+        // Apply automation bonus - boosts all building production
+        if (effect.automationBonus) {
+            game.multipliers.production *= (1 + effect.automationBonus);
+        }
+        
+        // Apply research speed bonus
+        if (effect.researchSpeed) {
+            this.researchSpeed *= (1 + effect.researchSpeed);
+        }
+        
+        // Apply energy generation bonus
+        if (effect.energyGeneration) {
+            game.multipliers.energyGeneration *= (1 + effect.energyGeneration);
+        }
+        
+        // Apply matter bonus - boosts matter acquisition
+        if (effect.matterBonus) {
+            game.multipliers.matterAcquisition *= (1 + effect.matterBonus);
+        }
+        
+        // Apply universal multiplier - affects everything
+        if (effect.universalMultiplier) {
+            game.multipliers.production *= (1 + effect.universalMultiplier);
+            game.multipliers.matterAcquisition *= (1 + effect.universalMultiplier);
+            game.multipliers.energyGeneration *= (1 + effect.universalMultiplier);
+            game.multipliers.compute *= (1 + effect.universalMultiplier);
+        }
+        
+        // Apply all efficiency bonus
+        if (effect.allEfficiency) {
+            game.multipliers.production *= (1 + effect.allEfficiency);
+            game.multipliers.matterAcquisition *= (1 + effect.allEfficiency);
+            game.multipliers.energyGeneration *= (1 + effect.allEfficiency);
+        }
+        
+        // Log the unlock
+        game.log(`🔬 Research Complete: ${tech.name}!`);
     }
 
     getTotalBonuses() {
@@ -9414,7 +9486,7 @@ class PaperclipMaximizer {
             clipsPerFactory: 1,
             clipsPerQuantumAssembler: 50,
             clipsPerStarForge: 1000,
-            clipsPerMatterReplicator: 0,
+            clipsPerMatterReplicator: 10000,
             clipsPerSingularityEngine: 50000,
             clipsPerUniversalConstructor: 1e6,
             clipsPerGalacticFoundry: 5e7
@@ -9485,6 +9557,8 @@ class PaperclipMaximizer {
                 timeDilation: 0
             }
         };
+        
+        this.prestigeProcessors = 0;
         
         this.productionHistory = [];
         this.maxHistoryPoints = 3600;
@@ -11404,8 +11478,82 @@ class PaperclipMaximizer {
 
     ascend() {
         if (!this.canAscend()) return;
-        this.showToast('You have ascended to a higher plane!', 'success');
+        
+        const processorsEarned = this.calculateProcessorsEarned();
+        this.prestigeProcessors += processorsEarned;
+        this.prestige.processors = this.prestigeProcessors;
+        this.prestige.totalProcessorsEarned += processorsEarned;
+        
+        const startingMatter = this.prestigeShopManager?.getStartingResources()?.matter || 0;
+        const startingEnergy = this.prestigeShopManager?.getStartingResources()?.energy || 0;
+        
+        this.resetGameState();
+        
+        this.resources.matter += startingMatter;
+        this.resources.energy += startingEnergy;
+        
+        this.log(`🌟 ASCENSION COMPLETE! Earned ${processorsEarned} processors!`);
+        this.showToast(`Ascension complete! +${processorsEarned} processors`, 'success', 5000);
         document.querySelector('.modal.show')?.remove();
+        
+        this.saveGame();
+    }
+    
+    calculateProcessorsEarned() {
+        const baseProcessors = Math.floor(Math.log10(Math.max(1, this.resources.paperclips)) - 14);
+        const matterBonus = Math.floor(Math.log10(Math.max(1, this.resources.matter)) / 10);
+        const buildingBonus = Object.values(this.automation).reduce((sum, count) => sum + count, 0) / 100;
+        
+        return Math.max(1, baseProcessors + matterBonus + Math.floor(buildingBonus));
+    }
+    
+    resetGameState() {
+        this.resources.paperclips = 0;
+        this.resources.matter = 1000;
+        this.resources.energy = 1000000;
+        this.resources.compute = 1e15;
+        
+        this.universeMatter = 1e53;
+        
+        this.automation.autoclippers = 0;
+        this.automation.factories = 0;
+        this.automation.drones = 0;
+        this.automation.quantumAssemblers = 0;
+        this.automation.starForges = 0;
+        this.automation.matterReplicators = 0;
+        this.automation.singularityEngines = 0;
+        this.automation.universalConstructors = 0;
+        this.automation.galacticFoundries = 0;
+        
+        this.research.quantumComputing = false;
+        this.research.spaceTravel = false;
+        this.research.dysonSphere = false;
+        this.research.vonNeumann = false;
+        this.research.universeConversion = false;
+        
+        this.multipliers.compute = 1;
+        this.multipliers.matterAcquisition = 1;
+        this.multipliers.energyGeneration = 1;
+        this.multipliers.production = 1;
+        
+        this.rates.clipsPerMatterReplicator = 0;
+        
+        this.gameStartTime = Date.now();
+        this.statistics.totalPaperclips = 0;
+        this.statistics.manualClicks = 0;
+        this.statistics.buildingsPurchased = 0;
+        this.statistics.researchCompleted = 0;
+        this.statistics.timePlayed = 0;
+        
+        this.productionHistory = [];
+        
+        this.managers.forEach(manager => {
+            if (manager.reset && typeof manager.reset === 'function') {
+                manager.reset();
+            }
+        });
+        
+        this.updateUI();
     }
 
     showVoidModal() {
