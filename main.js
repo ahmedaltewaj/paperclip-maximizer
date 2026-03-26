@@ -10418,18 +10418,58 @@ class PaperclipMaximizer {
     }
 
     updateUI() {
-        document.getElementById('paperclips').textContent = this.formatNumber(this.resources.paperclips);
-        document.getElementById('matter').textContent = this.formatNumber(this.resources.matter);
-        document.getElementById('energy').textContent = this.formatNumber(this.resources.energy);
+        const paperclipsEl = document.getElementById('paperclips');
+        const matterEl = document.getElementById('matter');
+        const energyEl = document.getElementById('energy');
+
+        if (paperclipsEl) {
+            paperclipsEl.textContent = this.formatNumber(this.resources.paperclips);
+            paperclipsEl.title = `Exact: ${this.formatNumberExact(this.resources.paperclips)}`;
+        }
+        if (matterEl) {
+            matterEl.textContent = this.formatNumber(this.resources.matter);
+            matterEl.title = `Exact: ${this.formatNumberExact(this.resources.matter)}`;
+        }
+        if (energyEl) {
+            energyEl.textContent = this.formatNumber(this.resources.energy);
+            energyEl.title = `Exact: ${this.formatNumberExact(this.resources.energy)}`;
+        }
+
         document.getElementById('compute').innerHTML = `10<sup>15</sup>`;
         document.getElementById('universe-matter').innerHTML = `10<sup>53</sup> kg`;
-        
-        document.getElementById('stat-clips-per-second').textContent = this.formatNumber(this.statistics.clipsPerSecond);
-        document.getElementById('stat-matter-per-second').textContent = this.formatNumber(this.statistics.matterPerSecond);
-        document.getElementById('stat-energy-per-second').textContent = this.formatNumber(this.statistics.energyPerSecond);
-        document.getElementById('stat-total-clips').textContent = this.formatNumber(this.statistics.totalPaperclips);
-        document.getElementById('stat-total-matter').textContent = this.formatNumber(this.statistics.totalMatterConsumed);
-        document.getElementById('stat-total-energy').textContent = this.formatNumber(this.statistics.totalEnergyConsumed);
+
+        const statClipsEl = document.getElementById('stat-clips-per-second');
+        const statMatterEl = document.getElementById('stat-matter-per-second');
+        const statEnergyEl = document.getElementById('stat-energy-per-second');
+        const statTotalClipsEl = document.getElementById('stat-total-clips');
+        const statTotalMatterEl = document.getElementById('stat-total-matter');
+        const statTotalEnergyEl = document.getElementById('stat-total-energy');
+
+        if (statClipsEl) {
+            statClipsEl.textContent = this.formatNumber(this.statistics.clipsPerSecond);
+            statClipsEl.title = `Exact: ${this.formatNumberExact(this.statistics.clipsPerSecond)}`;
+        }
+        if (statMatterEl) {
+            statMatterEl.textContent = this.formatNumber(this.statistics.matterPerSecond);
+            statMatterEl.title = `Exact: ${this.formatNumberExact(this.statistics.matterPerSecond)}`;
+        }
+        if (statEnergyEl) {
+            statEnergyEl.textContent = this.formatNumber(this.statistics.energyPerSecond);
+            statEnergyEl.title = `Exact: ${this.formatNumberExact(this.statistics.energyPerSecond)}`;
+        }
+        if (statTotalClipsEl) {
+            statTotalClipsEl.textContent = this.formatNumber(this.statistics.totalPaperclips);
+            statTotalClipsEl.title = `Exact: ${this.formatNumberExact(this.statistics.totalPaperclips)}`;
+        }
+        if (statTotalMatterEl) {
+            statTotalMatterEl.textContent = this.formatNumber(this.statistics.totalMatterConsumed);
+            statTotalMatterEl.title = `Exact: ${this.formatNumberExact(this.statistics.totalMatterConsumed)}`;
+        }
+        if (statTotalEnergyEl) {
+            statTotalEnergyEl.textContent = this.formatNumber(this.statistics.totalEnergyConsumed);
+            statTotalEnergyEl.title = `Exact: ${this.formatNumberExact(this.statistics.totalEnergyConsumed)}`;
+        }
+
         document.getElementById('stat-play-time').textContent = this.formatTime(Date.now() - this.gameStartTime);
         
         document.getElementById('prestige-processors').textContent = this.prestige.processors;
@@ -10553,6 +10593,10 @@ class PaperclipMaximizer {
         if (num >= 1e6) return (num / 1e6).toFixed(2) + 'M';
         if (num >= 1e3) return (num / 1e3).toFixed(2) + 'K';
         return Math.floor(num).toString();
+    }
+
+    formatNumberExact(num) {
+        return num.toLocaleString('en-US', { maximumFractionDigits: 2 });
     }
     
     formatTime(ms) {
