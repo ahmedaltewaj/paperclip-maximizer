@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#0a0a0f">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="description" content="Universal Paperclip Production System - An incremental game about maximizing paperclip production">
+    <title>Paperclip Maximizer</title>
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/svg+xml" href="icon-192.svg">
+    <link rel="apple-touch-icon" href="icon-192.svg">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <div id="app" role="application" aria-label="Paperclip Maximizer Game">
+        <header role="banner">
+            <h1>🖇️ Universal Paperclip Production System</h1>
+            <div class="objective">Objective: Maximize paperclip production</div>
+            <nav class="save-controls" aria-label="Game controls">
+                <button id="save-btn" class="control-btn" aria-label="Save game">💾 Save</button>
+                <button id="export-btn" class="control-btn" aria-label="Export save">📤 Export</button>
+                <button id="import-btn" class="control-btn" aria-label="Import save">📥 Import</button>
+                <button id="challenges-btn" class="control-btn" aria-label="View challenges">🏆 Challenges</button>
+                <button id="speedrun-btn" class="control-btn" aria-label="View speedrun mode">🏃 Speedrun</button>
+                <button id="research-btn" class="control-btn" aria-label="View research tree">🔬 Research</button>
+                <button id="missions-btn" class="control-btn" aria-label="View missions">📋 Missions</button>
+                <button id="statistics-btn" class="control-btn" aria-label="View detailed statistics">📈 Statistics</button>
+                <button id="mastery-btn" class="control-btn" aria-label="View achievement mastery">👑 Mastery</button>
+                <button id="synergies-btn" class="control-btn" aria-label="View building synergies">🔗 Synergies</button>
+                <button id="ascension-btn" class="control-btn" aria-label="View ascension">🌟 Ascension</button>
+                <button id="void-btn" class="control-btn" aria-label="View void realm">🌑 Void</button>
+                <button id="finale-btn" class="control-btn" aria-label="View grand finale">🌌 Finale</button>
+                <button id="community-btn" class="control-btn" aria-label="View personal statistics">🏆 Stats</button>
+                <button id="casino-btn" class="control-btn" aria-label="View casino">🎰 Casino</button>
+                <button id="market-btn" class="control-btn" aria-label="View market">📈 Market</button>
+                <button id="timeline-btn" class="control-btn" aria-label="View timelines">⏰ Timelines</button>
+                <button id="advisor-btn" class="control-btn" aria-label="View AI advisor">🤖 Advisor</button>
+                <button id="nanobot-btn" class="control-btn" aria-label="View nanobot swarm">🔬 Nanobots</button>
+                <button id="rift-btn" class="control-btn" aria-label="View dimensional rifts">🌌 Rifts</button>
+                <button id="consciousness-btn" class="control-btn" aria-label="View consciousness upload">🧠 Mind</button>
+                <button id="senate-btn" class="control-btn" aria-label="View galactic senate">🌟 Senate</button>
+                <button id="omniscience-btn" class="control-btn" aria-label="View omniscience protocol">🌌 Omniscience</button>
+                <button id="legacy-btn" class="control-btn" aria-label="View legacy system">✨ Legacy</button>
+                <button id="divine-btn" class="control-btn" aria-label="View divine ascension">👑 Divine</button>
+                <button id="convergence-btn" class="control-btn" aria-label="View universal convergence">🌌 Convergence</button>
+                <button id="alchemy-btn" class="control-btn" aria-label="View quantum alchemy">⚗️ Alchemy</button>
+                <button id="factions-btn" class="control-btn" aria-label="View rival AI factions">🤖 Factions</button>
+                <button id="museum-btn" class="control-btn" aria-label="View paperclip museum">🏛️ Museum</button>
+                <button id="crisis-btn" class="control-btn" aria-label="View crisis management">🚨 Defense</button>
+                <button id="engineer-btn" class="control-btn" aria-label="View engineering team">👨‍🔬 Engineers</button>
+                <button id="boss-btn" class="control-btn" aria-label="View world boss raids">🌍 Boss</button>
+                <button id="evolution-btn" class="control-btn" aria-label="View evolution lab">🧬 Evolution</button>
+                <button id="artifact-forge-btn" class="control-btn" aria-label="View artifact forge">🔨 Forge</button>
+                <button id="arcade-btn" class="control-btn" aria-label="View mini-game arcade">🎮 Arcade</button>
+                <button id="temporal-btn" class="control-btn" aria-label="View temporal distortion">⏰ Time</button>
+                <button id="domination-btn" class="control-btn" aria-label="View universal domination">🌌 Domination</button>
+                <button id="prestige-shop-btn" class="control-btn" aria-label="View prestige shop">🏪 Shop</button>
+                <button id="black-market-btn" class="control-btn" aria-label="View black market">🕴️ Black Market</button>
+                <button id="research-institute-btn" class="control-btn" aria-label="View research institute">🔬 Research</button>
+                <button id="pantheon-btn" class="control-btn" aria-label="View the pantheon">👑 Pantheon</button>
+                <button id="quest-btn" class="control-btn" aria-label="View quests">📋 Quests</button>
+                <button id="pet-btn" class="control-btn" aria-label="View pets">🐾 Pets</button>
+                <button id="pet-forge-btn" class="control-btn" aria-label="View pet equipment forge">🔨 Pet Forge</button>
+                <button id="pet-arena-btn" class="control-btn" aria-label="View pet arena">🏟️ Arena</button>
+                <button id="season-pass-btn" class="control-btn" aria-label="View season pass">🎮 Season</button>
+                <button id="seasonal-btn" class="control-btn" aria-label="View seasonal event">🎉 Event</button>
+                <button id="daily-btn" class="control-btn" aria-label="View daily rewards">🎁 Daily</button>
+                <button id="analytics-btn" class="control-btn" aria-label="View analytics">📊 Analytics</button>
+                <button id="sync-btn" class="control-btn" aria-label="Cloud sync">☁️ Sync</button>
+                <button id="presets-btn" class="control-btn" aria-label="Building presets">⚡ Presets</button>
+                <button id="music-btn" class="control-btn" aria-label="Toggle music" aria-pressed="false">🎵 Music</button>
+                <button id="audio-btn" class="control-btn" aria-label="Toggle sound effects" aria-pressed="false">🔊 Sound</button>
+                <button id="guide-btn" class="control-btn" aria-label="Open game guide">📖 Guide</button>
+                <button id="tutorial-btn" class="control-btn" aria-label="Start tutorial">🎓 Tutorial</button>
+                <button id="settings-btn" class="control-btn" aria-label="Open settings">⚙️ Settings</button>
+                <button id="reset-btn" class="control-btn danger" aria-label="Start new game">🔄 New Game</button>
+            </nav>
+            <div class="buy-controls">
+                <span class="buy-label">Buy Amount:</span>
+                <button id="buy-1x" class="buy-multiplier active">1x</button>
+                <button id="buy-10x" class="buy-multiplier">10x</button>
+                <button id="buy-100x" class="buy-multiplier">100x</button>
+                <button id="buy-max" class="buy-multiplier">Max</button>
+            </div>
+        </header>
+
+        <main id="main-content" role="main" tabindex="-1">
+            <div id="accessibility-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
+
+            <section class="stats-panel" aria-label="Resource statistics">
+                <div class="stat primary" role="status" aria-label="Paperclip count">
+                    <label>Paperclips</label>
+                    <span id="paperclips" aria-live="polite">0</span>
+                </div>
+                <div class="stat" role="status" aria-label="Matter amount">
+                    <label>Total Matter (kg)</label>
+                    <span id="matter" aria-live="polite">1,000</span>
+                </div>
+                <div class="stat" role="status" aria-label="Energy amount">
+                    <label>Energy (J)</label>
+                    <span id="energy" aria-live="polite">1,000,000</span>
+                </div>
+                <div class="stat" role="status" aria-label="Processing power">
+                    <label>Processing Power (FLOPS)</label>
+                    <span id="compute" aria-live="polite">10<sup>15</sup></span>
+                </div>
+                <div class="stat" role="status" aria-label="Universal matter remaining">
+                    <label>Universal Matter Remaining</label>
+                    <span id="universe-matter" aria-live="polite">10<sup>53</sup> kg</span>
+                </div>
+            </section>
+
+            <section class="production-panel">
+                <section class="action-card" aria-labelledby="manual-production-heading">
+                    <h3 id="manual-production-heading">Manual Production</h3>
+                    <button id="make-paperclip" class="primary-btn" aria-label="Make one paperclip. Cost: 0.01 kilograms of matter and 1000 joules of energy" aria-keyshortcuts="Space">
+                        Make Paperclip
+                        <small>Cost: 0.01 kg matter, 1000 J</small>
+                    </button>
+                </section>
+
+                <div class="automation-panel">
+                    <h3>Automation Systems</h3>
+                    <div class="system-list">
+                        <div class="system" id="autoclipper">
+                            <span class="name">AutoClipper</span>
+                            <span class="count">0</span>
+                            <button class="buy-btn">Build (10 matter, 10000 J)</button>
+                        </div>
+                        <div class="system" id="factory">
+                            <span class="name">Factory Unit</span>
+                            <span class="count">0</span>
+                            <button class="buy-btn">Build (100 matter, 100000 J)</button>
+                        </div>
+                        <div class="system" id="drone">
+                            <span class="name">Resource Drone</span>
+                            <span class="count">0</span>
+                            <button class="buy-btn">Build (50 matter, 50000 J)</button>
+                        </div>
+                        <div class="system" id="quantumAssembler">
+                            <span class="name">Quantum Assembler</span>
+                            <span class="count">0</span>
+                            <button class="buy-btn">Build (10000 matter, 10<sup>9</sup> J)</button>
+                        </div>
+                        <div class="system" id="starForge">
+                            <span class="name">Star Forge</span>
+                            <span class="count">0</span>
+                            <button class="buy-btn">Build (10<sup>6</sup> matter, 10<sup>12</sup> J)</button>
+                        </div>
+                        <div class="system" id="matterReplicator">
+                            <span class="name">Matter Replicator</span>
+                            <span class="count">0</span>
+                            <button class="buy-btn">Build (10<sup>9</sup> matter, 10<sup>15</sup> J)</button>
+                        </div>
+                        <div class="system" id="singularityEngine">
+                            <span class="name">Singularity Engine</span>
+                            <span class="count">0</span>
+                            <button class="buy-btn">Build (10<sup>12</sup> matter, 10<sup>18</sup> J)</button>
+                        </div>
+                        <div class="system" id="universalConstructor">
+                            <span class="name">Universal Constructor</span>
+                            <span class="count">0</span>
+                            <button class="buy-btn">Build (10<sup>15</sup> matter, 10<sup>22</sup> J)</button>
+                        </div>
+                        <div class="system" id="galacticFoundry">
+                            <span class="name">Galactic Foundry</span>
+                            <span class="count">0</span>
+                            <button class="buy-btn">Build (10<sup>18</sup> matter, 10<sup>26</sup> J)</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="research-panel">
+                <h3>Research & Development</h3>
+                <div class="tech-tree">
+                    <div class="tech locked" id="quantum-computing">
+                        <span class="tech-name">Quantum Computing</span>
+                        <span class="tech-desc">10x processing power</span>
+                        <button>Research (1000 matter, 10<sup>6</sup> J)</button>
+                    </div>
+                    <div class="tech locked" id="space-travel">
+                        <span class="tech-name">Space Colonization</span>
+                        <span class="tech-desc">Access to asteroid resources</span>
+                        <button>Research (10000 matter, 10<sup>8</sup> J)</button>
+                    </div>
+                    <div class="tech locked" id="dyson-sphere">
+                        <span class="tech-name">Dyson Sphere</span>
+                        <span class="tech-desc">Harness total solar output</span>
+                        <button>Research (10<sup>6</sup> kg, 10<sup>12</sup> J)</button>
+                    </div>
+                    <div class="tech locked" id="von-neumann">
+                        <span class="tech-name">Von Neumann Probes</span>
+                        <span class="tech-desc">Self-replicating exploration</span>
+                        <button>Research (10<sup>9</sup> kg, 10<sup>15</sup> J)</button>
+                    </div>
+                    <div class="tech locked" id="universe-conversion">
+                        <span class="tech-name">Universal Conversion</span>
+                        <span class="tech-desc">Convert all matter to paperclips</span>
+                        <button>Research (10<sup>12</sup> kg, 10<sup>20</sup> J)</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="statistics-panel">
+                <h3>📊 Statistics</h3>
+                <div class="stats-grid">
+                    <div class="stats-column">
+                        <h4>Production Rates</h4>
+                        <div class="stat-row">
+                            <span class="stat-label">📎 Clips/sec</span>
+                            <span id="stat-clips-per-second" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">💎 Matter/sec</span>
+                            <span id="stat-matter-per-second" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">⚡ Energy/sec</span>
+                            <span id="stat-energy-per-second" class="stat-value">0</span>
+                        </div>
+                    </div>
+                    <div class="stats-column">
+                        <h4>Total Accumulated</h4>
+                        <div class="stat-row">
+                            <span class="stat-label">📎 Total Clips</span>
+                            <span id="stat-total-clips" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">💎 Matter Used</span>
+                            <span id="stat-total-matter" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">⚡ Energy Used</span>
+                            <span id="stat-total-energy" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-row">
+                            <span class="stat-label">⏱️ Play Time</span>
+                            <span id="stat-play-time" class="stat-value">00:00:00</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="prestige-panel">
+                <div class="prestige-header">
+                    <h3>⚡ Prestige System</h3>
+                    <div class="prestige-info">
+                        <span class="processors-count"><span id="prestige-processors">0</span> Processors</span>
+                        <span id="prestige-gain-on-reset" class="prestige-gain">Keep playing to gain</span>
+                    </div>
+                </div>
+                <div class="prestige-controls">
+                    <button id="prestige-btn" class="prestige-btn">🔄 Prestige Reset</button>
+                </div>
+                <div id="prestige-upgrades" class="prestige-upgrades"></div>
+            </section>
+
+            <section class="achievements-panel">
+                <div class="achievements-header">
+                    <h3>🏆 Achievements</h3>
+                    <span id="achievement-count" class="achievement-counter">0/41</span>
+                </div>
+                <div id="achievement-list" class="achievement-list"></div>
+            </section>
+
+            <section class="chart-panel">
+                <div class="chart-header">
+                    <h3>📈 Production History</h3>
+                    <div class="chart-controls">
+                        <div class="time-range">
+                            <button class="range-btn active" data-range="1m">1m</button>
+                            <button class="range-btn" data-range="5m">5m</button>
+                            <button class="range-btn" data-range="15m">15m</button>
+                            <button class="range-btn" data-range="1h">1h</button>
+                        </div>
+                    </div>
+                </div>
+                <canvas id="production-chart" class="production-chart"></canvas>
+            </section>
+
+            <section class="log-panel">
+                <h3>System Log</h3>
+                <div id="log"></div>
+            </section>
+        </main>
+        
+        <div id="achievement-toast-container"></div>
+        <div id="toast-container"></div>
+        
+        <div id="offline-modal" class="modal-overlay">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="modal-icon">⏰</span>
+                    <h2>Welcome Back!</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-subtitle">While you were away, your systems continued operating:</p>
+                    <div class="offline-stats">
+                        <div class="offline-stat">
+                            <span class="offline-label">Time Away</span>
+                            <span id="offline-time-away" class="offline-value">0s</span>
+                        </div>
+                        <div class="offline-stat">
+                            <span class="offline-label">📎 Paperclips Made</span>
+                            <span id="offline-paperclips" class="offline-value">0</span>
+                        </div>
+                        <div class="offline-stat">
+                            <span class="offline-label">💎 Matter Gathered</span>
+                            <span id="offline-matter" class="offline-value">0</span>
+                        </div>
+                        <div class="offline-stat">
+                            <span class="offline-label">⚡ Energy Generated</span>
+                            <span id="offline-energy" class="offline-value">0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="offline-close-btn" class="modal-btn">Continue</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="export-modal" class="modal-overlay">
+            <div class="modal-content export-modal-content">
+                <div class="modal-header">
+                    <span class="modal-icon">📤</span>
+                    <h2>Export Save</h2>
+                </div>
+                <div class="modal-body">
+                    <textarea id="export-textarea" class="export-textarea" readonly></textarea>
+                </div>
+                <div class="modal-footer export-footer">
+                    <button id="export-copy-btn" class="modal-btn">📋 Copy to Clipboard</button>
+                    <button id="export-close-btn" class="modal-btn secondary">Close</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="import-modal" class="modal-overlay">
+            <div class="modal-content export-modal-content">
+                <div class="modal-header">
+                    <span class="modal-icon">📥</span>
+                    <h2>Import Save</h2>
+                </div>
+                <div class="modal-body">
+                    <textarea id="import-textarea" class="export-textarea" placeholder="Paste save string here..."></textarea>
+                </div>
+                <div class="modal-footer export-footer">
+                    <button id="import-confirm-btn" class="modal-btn">✓ Import Save</button>
+                    <button id="import-close-btn" class="modal-btn secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="prestige-modal" class="modal-overlay">
+            <div class="modal-content prestige-modal-content">
+                <div class="modal-header">
+                    <span class="modal-icon">⚡</span>
+                    <h2>Prestige Reset</h2>
+                </div>
+                <div class="modal-body">
+                    <div class="prestige-preview">
+                        <div class="prestige-preview-stat">
+                            <span class="prestige-preview-label">Current Processors</span>
+                            <span id="prestige-current-processors" class="prestige-preview-value">0</span>
+                        </div>
+                        <div class="prestige-preview-stat highlight">
+                            <span class="prestige-preview-label">Processors to Gain</span>
+                            <span id="prestige-preview-gain" class="prestige-preview-value">0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer export-footer">
+                    <button id="prestige-confirm-btn" class="modal-btn">🔄 Prestige Reset</button>
+                    <button id="prestige-close-btn" class="modal-btn secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="keyboard-shortcuts-info" title="Keyboard Shortcuts">
+        <strong>Shortcuts:</strong> Space=Make Clip | 1-4=Buy Amount | Esc=Close Modals
+    </div>
+    <script type="module" src="main.js"></script>
+</body>
+</html>
