@@ -6,7 +6,7 @@
 
 ## 🎮 Play Now
 
-[Live Demo](https://your-demo-link-here.com) *(deploy your own!)*
+**🌐 [Live Demo](https://paperclip-maximizer.surge.sh)** *(Play now!)*
 
 Or run locally:
 ```bash
@@ -122,17 +122,39 @@ Toggle sound effects and music from the header or settings.
 
 ## 🚀 Deployment
 
+### One-Command Deploy
+```bash
+./deploy.sh
+```
+
+### Manual Deploy
+
 Build for production:
 ```bash
 npm run build
 ```
 
 Deploy the `dist/` folder to any static host:
-- GitHub Pages
-- Netlify
-- Vercel
-- Cloudflare Pages
-- Any web server
+
+**GitHub Pages** (Recommended - Free)
+1. Push to GitHub
+2. Go to Settings → Pages → GitHub Actions
+3. Auto-deploys on every push
+
+**Surge.sh** (Free, instant)
+```bash
+npx surge dist/ paperclip-maximizer.surge.sh
+```
+
+**Netlify** (Free, drag-drop)
+```bash
+npx netlify deploy --prod --dir=dist
+```
+
+**Vercel** (Free)
+```bash
+npx vercel --prod
+```
 
 ## 🛠️ Tech Stack
 
