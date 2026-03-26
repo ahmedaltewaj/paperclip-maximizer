@@ -1380,6 +1380,7 @@ class EngineerTrainingManager {
 class EvolutionLabManager {
     constructor(game) {
         this.game = game;
+        this.active = true;
         this.unlocked = false;
         this.mutations = new Map();
         this.research = {
@@ -1972,6 +1973,7 @@ class EvolutionLabManager {
 class PrestigeShopManager {
     constructor(game) {
         this.game = game;
+        this.active = true;
         this.unlocked = false;
         this.upgrades = this.initUpgrades();
         this.purchasedUpgrades = new Set();
@@ -4551,6 +4553,7 @@ class BlackMarketManager {
 class ResearchInstituteManager {
     constructor(game) {
         this.game = game;
+        this.active = true;
         this.unlocked = false;
         this.researchPoints = 0;
         this.totalResearchGenerated = 0;
@@ -7641,6 +7644,7 @@ class PetManager {
 class PetEquipmentManager {
     constructor(game) {
         this.game = game;
+        this.active = true;
         this.unlocked = false;
         this.inventory = [];
         this.maxInventorySize = 50;
@@ -8461,6 +8465,7 @@ class PetEquipmentManager {
 class PetArenaManager {
     constructor(game) {
         this.game = game;
+        this.active = true;
         this.unlocked = false;
         this.playerRank = 1000;
         this.maxRank = 100;
