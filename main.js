@@ -9547,16 +9547,56 @@ class PaperclipMaximizer {
     }
     
     init() {
-        const hasSave = this.loadGame();
-        this.bindEvents();
-        this.startGameLoop();
-        this.autoSaveInterval = setInterval(() => this.saveGame(), this.AUTO_SAVE_INTERVAL_MS);
-        this.calculateOfflineProgress();
+        try {
+            const hasSave = this.loadGame();
+            this.bindEvents();
+            this.startGameLoop();
+            this.autoSaveInterval = setInterval(() => this.saveGame(), this.AUTO_SAVE_INTERVAL_MS);
+            this.calculateOfflineProgress();
 
-        if (!hasSave) {
-            this.showWelcomeModal();
-        } else {
-            this.log('Game initialized. Welcome back, Paperclip Maximizer.');
+            this.hideLoadingScreen();
+
+            if (!hasSave) {
+                this.showWelcomeModal();
+            } else {
+                this.log('Game initialized. Welcome back, Paperclip Maximizer.');
+            }
+        } catch (error) {
+            console.error('Game initialization failed:', error);
+            this.showLoadingError('Failed to initialize game. Please refresh the page.');
+        }
+    }
+
+    hideLoadingScreen() {
+        requestAnimationFrame(() => {
+            const loadingScreen = document.getElementById('loading-screen');
+            const app = document.getElementById('app');
+
+            if (loadingScreen) {
+                loadingScreen.classList.add('hidden');
+            }
+
+            if (app) {
+                app.style.opacity = '1';
+            }
+
+            setTimeout(() => {
+                loadingScreen?.remove();
+            }, 500);
+        });
+    }
+
+    showLoadingError(message) {
+        const loadingText = document.querySelector('.loading-text');
+        const loadingBar = document.querySelector('.loading-bar');
+
+        if (loadingText) {
+            loadingText.textContent = message;
+            loadingText.style.color = 'var(--danger)';
+        }
+
+        if (loadingBar) {
+            loadingBar.style.display = 'none';
         }
     }
 
@@ -10195,80 +10235,86 @@ class PaperclipMaximizer {
     }
     
     tick() {
-        const now = Date.now();
-        const deltaTime = (now - this.lastTick) / 1000;
-        this.lastTick = now;
-        
-        const clipsPerSecond = this.calculateProductionRate();
-        const matterPerSecond = this.automation.drones * this.rates.matterPerDrone * this.multipliers.matterAcquisition;
-        const energyPerSecond = this.rates.energyPerSecond * this.multipliers.energyGeneration;
-        
-        this.resources.paperclips += clipsPerSecond * deltaTime;
-        this.resources.matter += matterPerSecond * deltaTime;
-        this.resources.energy += energyPerSecond * deltaTime;
-        
-        this.statistics.totalPaperclips += clipsPerSecond * deltaTime;
-        this.statistics.clipsPerSecond = clipsPerSecond;
-        this.statistics.matterPerSecond = matterPerSecond;
-        this.statistics.energyPerSecond = energyPerSecond;
-        
-        this.productionHistory.push({
-            timestamp: now,
-            clipsPerSecond,
-            matterPerSecond,
-            energyPerSecond,
-            totalPaperclips: this.statistics.totalPaperclips
-        });
-        
-        if (this.productionHistory.length > this.maxHistoryPoints) {
-            this.productionHistory.shift();
-        }
-        
-        this.checkAchievements();
-        
-        // Core managers - always tick
-        if (this.seasonalEventsManager) this.seasonalEventsManager.tick();
-        if (this.speedrunManager) this.speedrunManager.tick();
-        
-        // Conditional managers - only tick if relevant state exists
-        if (this.ascensionManager?.active) this.ascensionManager.tick();
-        if (this.researchTreeManager?.active) this.researchTreeManager.tick();
-        if (this.communityManager?.active) this.communityManager.tick();
-        if (this.casinoManager?.active) this.casinoManager.tick();
-        if (this.marketManager?.active) this.marketManager.tick();
-        if (this.timelineManager?.active) this.timelineManager.tick();
-        if (this.advisorManager?.active) this.advisorManager.tick();
-        if (this.nanobotManager?.active) this.nanobotManager.tick();
-        if (this.riftManager?.active) this.riftManager.tick();
-        if (this.consciousnessManager?.active) this.consciousnessManager.tick();
-        if (this.senateManager?.active) this.senateManager.tick();
-        if (this.omniscienceManager?.active) this.omniscienceManager.tick();
-        if (this.legacySystem?.active) this.legacySystem.tick();
-        if (this.divineManager?.active) this.divineManager.tick();
-        if (this.convergenceManager?.active) this.convergenceManager.tick();
-        if (this.alchemyManager?.active) this.alchemyManager.tick();
-        if (this.factionsManager?.active) this.factionsManager.tick();
-        if (this.museumManager?.active) this.museumManager.tick();
-        if (this.crisisManager?.active) this.crisisManager.tick();
-        if (this.engineerManager?.active) this.engineerManager.tick();
-        if (this.worldBossManager?.active) this.worldBossManager.tick();
-        if (this.temporalDistortionManager?.active) this.temporalDistortionManager.tick();
-        if (this.universalDominationManager?.active) this.universalDominationManager.tick();
-        if (this.miniGameArcadeManager?.active) this.miniGameArcadeManager.tick();
-        if (this.artifactForgeManager?.active) this.artifactForgeManager.tick();
-        if (this.prestigeShopManager?.active) this.prestigeShopManager.tick();
-        if (this.blackMarketManager?.active) this.blackMarketManager.tick();
-        if (this.researchInstituteManager?.active) this.researchInstituteManager.tick();
-        if (this.pantheonManager?.active) this.pantheonManager.tick();
-        if (this.questManager?.active) this.questManager.tick();
-        if (this.seasonPassManager?.active) this.seasonPassManager.tick();
-        if (this.petManager?.active) this.petManager.tick();
-        if (this.petEquipmentManager?.active) this.petEquipmentManager.tick();
-        if (this.petArenaManager?.active) this.petArenaManager.tick();
-        if (this.evolutionManager?.active) this.evolutionManager.tick();
+        try {
+            const now = Date.now();
+            const deltaTime = (now - this.lastTick) / 1000;
+            this.lastTick = now;
 
-        this.checkWinCondition();
-        this.updateUI();
+            const clipsPerSecond = this.calculateProductionRate();
+            const matterPerSecond = this.automation.drones * this.rates.matterPerDrone * this.multipliers.matterAcquisition;
+            const energyPerSecond = this.rates.energyPerSecond * this.multipliers.energyGeneration;
+
+            this.resources.paperclips += clipsPerSecond * deltaTime;
+            this.resources.matter += matterPerSecond * deltaTime;
+            this.resources.energy += energyPerSecond * deltaTime;
+
+            this.statistics.totalPaperclips += clipsPerSecond * deltaTime;
+            this.statistics.clipsPerSecond = clipsPerSecond;
+            this.statistics.matterPerSecond = matterPerSecond;
+            this.statistics.energyPerSecond = energyPerSecond;
+
+            this.productionHistory.push({
+                timestamp: now,
+                clipsPerSecond,
+                matterPerSecond,
+                energyPerSecond,
+                totalPaperclips: this.statistics.totalPaperclips
+            });
+
+            if (this.productionHistory.length > this.maxHistoryPoints) {
+                this.productionHistory.shift();
+            }
+
+            this.checkAchievements();
+
+            // Core managers - always tick
+            if (this.seasonalEventsManager) this.seasonalEventsManager.tick();
+            if (this.speedrunManager) this.speedrunManager.tick();
+
+            // Conditional managers - only tick if relevant state exists
+            if (this.ascensionManager?.active) this.ascensionManager.tick();
+            if (this.researchTreeManager?.active) this.researchTreeManager.tick();
+            if (this.communityManager?.active) this.communityManager.tick();
+            if (this.casinoManager?.active) this.casinoManager.tick();
+            if (this.marketManager?.active) this.marketManager.tick();
+            if (this.timelineManager?.active) this.timelineManager.tick();
+            if (this.advisorManager?.active) this.advisorManager.tick();
+            if (this.nanobotManager?.active) this.nanobotManager.tick();
+            if (this.riftManager?.active) this.riftManager.tick();
+            if (this.consciousnessManager?.active) this.consciousnessManager.tick();
+            if (this.senateManager?.active) this.senateManager.tick();
+            if (this.omniscienceManager?.active) this.omniscienceManager.tick();
+            if (this.legacySystem?.active) this.legacySystem.tick();
+            if (this.divineManager?.active) this.divineManager.tick();
+            if (this.convergenceManager?.active) this.convergenceManager.tick();
+            if (this.alchemyManager?.active) this.alchemyManager.tick();
+            if (this.factionsManager?.active) this.factionsManager.tick();
+            if (this.museumManager?.active) this.museumManager.tick();
+            if (this.crisisManager?.active) this.crisisManager.tick();
+            if (this.engineerManager?.active) this.engineerManager.tick();
+            if (this.worldBossManager?.active) this.worldBossManager.tick();
+            if (this.temporalDistortionManager?.active) this.temporalDistortionManager.tick();
+            if (this.universalDominationManager?.active) this.universalDominationManager.tick();
+            if (this.miniGameArcadeManager?.active) this.miniGameArcadeManager.tick();
+            if (this.artifactForgeManager?.active) this.artifactForgeManager.tick();
+            if (this.prestigeShopManager?.active) this.prestigeShopManager.tick();
+            if (this.blackMarketManager?.active) this.blackMarketManager.tick();
+            if (this.researchInstituteManager?.active) this.researchInstituteManager.tick();
+            if (this.pantheonManager?.active) this.pantheonManager.tick();
+            if (this.questManager?.active) this.questManager.tick();
+            if (this.seasonPassManager?.active) this.seasonPassManager.tick();
+            if (this.petManager?.active) this.petManager.tick();
+            if (this.petEquipmentManager?.active) this.petEquipmentManager.tick();
+            if (this.petArenaManager?.active) this.petArenaManager.tick();
+            if (this.evolutionManager?.active) this.evolutionManager.tick();
+
+            this.checkWinCondition();
+            this.updateUI();
+        } catch (error) {
+            console.error('Error in game tick:', error);
+            this.stopGameLoop();
+            this.showToast('Game error occurred. Check console for details.', 'error');
+        }
     }
 
     checkWinCondition() {
@@ -12053,4 +12099,23 @@ class PaperclipMaximizer {
 
 const game = new PaperclipMaximizer();
 window.game = game;
-document.addEventListener('DOMContentLoaded', () => game.init());
+
+window.addEventListener('error', (event) => {
+    console.error('Global error caught:', event.error);
+    game.showToast?.('An unexpected error occurred. Check console for details.', 'error');
+});
+
+window.addEventListener('unhandledrejection', (event) => {
+    console.error('Unhandled promise rejection:', event.reason);
+    game.showToast?.('An async error occurred. Check console for details.', 'error');
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    try {
+        game.init();
+    } catch (error) {
+        console.error('Failed to initialize game:', error);
+        document.getElementById('loading-screen')?.classList.add('hidden');
+        alert('Failed to start the game. Please refresh the page or check the console for errors.');
+    }
+});

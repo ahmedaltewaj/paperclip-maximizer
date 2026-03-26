@@ -16,8 +16,18 @@
 </head>
 <body>
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    
-    <div id="app" role="application" aria-label="Paperclip Maximizer Game">
+
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <div class="loading-icon">🖇️</div>
+            <div class="loading-text">Initializing Paperclip Maximizer...</div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="app" role="application" aria-label="Paperclip Maximizer Game" style="opacity: 0; transition: opacity 0.3s ease;">
         <header role="banner">
             <h1>🖇️ Universal Paperclip Production System</h1>
             <div class="objective">Objective: Maximize paperclip production</div>
