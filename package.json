@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test": "echo 'Tests: Build verification' && npm run build && echo '✓ Build successful'"
   },
   "devDependencies": {
     "vite": "^5.0.0"

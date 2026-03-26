@@ -32,3 +32,6 @@ yarn-error.log*
 # Cache
 .cache/
 *.log
+
+# Screenshots
+*.png
