@@ -6,7 +6,7 @@
 
 ## 🎮 Play Now
 
-**🌐 [Live Demo](https://paperclip-maximizer.surge.sh)** *(Play now!)*
+**🌐 [Live Demo](https://paperclip-maximizer.loca.lt)** *(Play now!)*
 
 Or run locally:
 ```bash
