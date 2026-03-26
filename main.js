@@ -11109,6 +11109,47 @@ class PaperclipMaximizer {
         document.body.appendChild(modal);
     }
 
+    showChangelogModal() {
+        const modal = document.createElement('div');
+        modal.className = 'modal show';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>📝 Changelog</h2>
+                    <button class="modal-close" onclick="this.closest('.modal').remove()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="changelog-content">
+                        <h3>v1.1.0 - UI/UX Improvements</h3>
+                        <ul>
+                            <li>Added loading screen with animated progress bar</li>
+                            <li>Improved error handling with global error boundaries</li>
+                            <li>Replaced native confirm dialogs with custom modals</li>
+                            <li>Added keyboard shortcuts (B, R, A, S)</li>
+                            <li>Added version number and changelog link</li>
+                        </ul>
+                        <h3>v1.0.1 - Bug Fixes & Performance</h3>
+                        <ul>
+                            <li>Fixed duplicate research button IDs</li>
+                            <li>Implemented missing modal functions</li>
+                            <li>Optimized game loop with requestAnimationFrame</li>
+                            <li>Added save import validation</li>
+                        </ul>
+                        <h3>v1.0.0 - Initial Release</h3>
+                        <ul>
+                            <li>Core gameplay with 9 automation buildings</li>
+                            <li>Research tree with 5 technologies</li>
+                            <li>Prestige system with permanent bonuses</li>
+                            <li>41 achievements to unlock</li>
+                            <li>Offline progress calculation</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    }
+
     showMasteryModal() {
         const modal = document.createElement('div');
         modal.className = 'modal show';
@@ -11987,10 +12028,30 @@ class PaperclipMaximizer {
     }
 
     confirmReset() {
-        if (confirm('Are you sure you want to start a new game? All progress will be lost!')) {
-            localStorage.removeItem(this.SAVE_KEY);
-            location.reload();
-        }
+        const modal = document.createElement('div');
+        modal.className = 'modal show';
+        modal.innerHTML = `
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>⚠️ Start New Game?</h2>
+                    <button class="modal-close" onclick="this.closest('.modal').remove()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to start a new game?</p>
+                    <p style="color: var(--danger); margin-top: 1rem;"><strong>All progress will be permanently lost!</strong></p>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="game.executeReset(); this.closest('.modal').remove();" class="danger">Yes, Start New Game</button>
+                    <button onclick="this.closest('.modal').remove();" class="secondary">Cancel</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    }
+
+    executeReset() {
+        localStorage.removeItem(this.SAVE_KEY);
+        location.reload();
     }
 
     showToast(message, type = 'info', duration = 3000) {

@@ -1434,6 +1434,26 @@ h1 {
     margin-top: 0;
 }
 
+.changelog-content h3 {
+    margin-top: 1.5rem;
+    color: var(--accent);
+    font-size: 1rem;
+}
+
+.changelog-content h3:first-child {
+    margin-top: 0;
+}
+
+.changelog-content ul {
+    margin-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.changelog-content li {
+    margin-bottom: 0.25rem;
+    color: var(--text-secondary);
+}
+
 .setting-item {
     display: flex;
     justify-content: space-between;
@@ -1987,6 +2007,43 @@ button:focus-visible {
 
 .keyboard-shortcuts-info:hover {
     opacity: 1;
+}
+
+.game-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.5rem;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    z-index: 100;
+}
+
+.game-footer .version {
+    font-weight: 600;
+    color: var(--accent);
+}
+
+.game-footer .separator {
+    opacity: 0.5;
+}
+
+.game-footer a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.game-footer a:hover {
+    color: var(--accent);
 }
 
 .welcome-modal .modal-content {
