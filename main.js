@@ -2259,6 +2259,7 @@ class PrestigeShopManager {
 class ArtifactForgeManager {
     constructor(game) {
         this.game = game;
+        this.active = true;
         this.unlocked = false;
         this.artifacts = this.initArtifacts();
         this.forgedArtifacts = [];
@@ -2725,6 +2726,7 @@ class ArtifactForgeManager {
 class MiniGameArcadeManager {
     constructor(game) {
         this.game = game;
+        this.active = true;
         this.unlocked = false;
         this.games = this.initGames();
         this.highScores = {};
@@ -3287,6 +3289,7 @@ class MiniGameArcadeManager {
 class TemporalDistortionManager {
     constructor(game) {
         this.game = game;
+        this.active = true;
         this.unlocked = false;
         this.temporalEnergy = 0;
         this.maxTemporalEnergy = 100;
@@ -3701,6 +3704,7 @@ class TemporalDistortionManager {
 class UniversalDominationManager {
     constructor(game) {
         this.game = game;
+        this.active = true;
         this.unlocked = false;
         this.regions = this.initRegions();
         this.conqueredRegions = new Set();
