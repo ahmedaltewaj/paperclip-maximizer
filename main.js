@@ -4121,6 +4121,7 @@ class UniversalDominationManager {
 class BlackMarketManager {
     constructor(game) {
         this.game = game;
+        this.active = true;
         this.unlocked = false;
         this.reputation = 0;
         this.heatLevel = 0;
@@ -5459,6 +5460,7 @@ class PantheonManager {
 class QuestManager {
     constructor(game) {
         this.game = game;
+        this.active = true;
         this.unlocked = false;
         this.quests = this.initQuests();
         this.activeQuests = new Map();
@@ -6282,6 +6284,7 @@ class QuestManager {
 class SeasonPassManager {
     constructor(game) {
         this.game = game;
+        this.active = true;
         this.seasonNumber = 1;
         this.seasonName = 'Galactic Awakening';
         this.seasonStartDate = Date.now();
