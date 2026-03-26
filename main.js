@@ -10150,6 +10150,14 @@ class PaperclipMaximizer {
         return totalCost;
     }
     
+    buyBuildingByShortcut(digit) {
+        const systems = ['autoclipper', 'factory', 'drone', 'quantumAssembler', 'starForge', 'matterReplicator', 'singularityEngine', 'universalConstructor', 'galacticFoundry'];
+        const system = systems[digit - 1];
+        if (system) {
+            this.buildSystem(system);
+        }
+    }
+
     buildSystem(system) {
         const systemKey = system + (system === 'drone' ? 's' : system === 'factory' ? 'ies' : 's');
         let amount = this.buyMultiplier === 'max' ? this.calculateMaxAffordable(system) : this.buyMultiplier;
@@ -10746,6 +10754,14 @@ class PaperclipMaximizer {
                         this.showStatisticsModal();
                     }
                     break;
+            }
+
+            if (e.shiftKey && e.code.startsWith('Digit')) {
+                const digit = parseInt(e.code.replace('Digit', ''));
+                if (digit >= 1 && digit <= 9) {
+                    e.preventDefault();
+                    this.buyBuildingByShortcut(digit);
+                }
             }
         });
         

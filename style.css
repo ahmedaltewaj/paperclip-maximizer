@@ -331,13 +331,32 @@ h1 {
 
 .system:hover { border-color: var(--accent); }
 
+.system .system-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
 .system .name { font-weight: 600; color: var(--text-primary); }
+
+.system .production {
+    font-size: 0.8rem;
+    color: var(--success);
+    font-weight: 500;
+}
 
 .system .count {
     text-align: center;
     font-size: 1.25rem;
     font-weight: bold;
     color: var(--accent);
+}
+
+.panel-hint {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-weight: normal;
+    margin-left: 0.5rem;
 }
 
 .buy-btn {
