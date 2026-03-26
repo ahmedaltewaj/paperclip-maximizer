@@ -10473,7 +10473,31 @@ class PaperclipMaximizer {
     }
     
     startGameLoop() {
-        this.gameLoop = setInterval(() => this.tick(), 100);
+        this.lastTickTime = performance.now();
+        this.accumulatedTime = 0;
+        this.tickInterval = 100;
+        
+        const gameLoop = (currentTime) => {
+            const deltaTime = currentTime - this.lastTickTime;
+            this.lastTickTime = currentTime;
+            this.accumulatedTime += deltaTime;
+            
+            while (this.accumulatedTime >= this.tickInterval) {
+                this.tick();
+                this.accumulatedTime -= this.tickInterval;
+            }
+            
+            this.gameLoopId = requestAnimationFrame(gameLoop);
+        };
+        
+        this.gameLoopId = requestAnimationFrame(gameLoop);
+    }
+    
+    stopGameLoop() {
+        if (this.gameLoopId) {
+            cancelAnimationFrame(this.gameLoopId);
+            this.gameLoopId = null;
+        }
     }
     
     formatNumber(num) {
@@ -10614,6 +10638,24 @@ class PaperclipMaximizer {
                 case 'Escape':
                     document.querySelectorAll('.modal.show').forEach(modal => modal.classList.remove('show'));
                     break;
+                case 'KeyB':
+                    e.preventDefault();
+                    document.getElementById('make-paperclip')?.focus();
+                    break;
+                case 'KeyR':
+                    e.preventDefault();
+                    this.showResearchModal();
+                    break;
+                case 'KeyA':
+                    e.preventDefault();
+                    document.querySelector('.automation-panel')?.scrollIntoView({ behavior: 'smooth' });
+                    break;
+                case 'KeyS':
+                    if (!e.ctrlKey && !e.metaKey) {
+                        e.preventDefault();
+                        this.showStatisticsModal();
+                    }
+                    break;
             }
         });
         
@@ -10631,6 +10673,10 @@ class PaperclipMaximizer {
         
         document.getElementById('import-close-btn')?.addEventListener('click', () => {
             document.getElementById('import-modal')?.classList.remove('show');
+        });
+
+        document.getElementById('import-confirm-btn')?.addEventListener('click', () => {
+            this.importSave();
         });
         
         document.getElementById('prestige-close-btn')?.addEventListener('click', () => {
@@ -10840,7 +10886,40 @@ class PaperclipMaximizer {
         const modal = document.getElementById('import-modal');
         if (modal) modal.classList.add('show');
     }
-    
+
+    importSave() {
+        const textarea = document.getElementById('import-textarea');
+        const saveString = textarea?.value?.trim();
+
+        if (!saveString) {
+            this.showToast('Please paste a save string first!', 'error');
+            return;
+        }
+
+        try {
+            const saveData = JSON.parse(saveString);
+
+            if (!this.validateSaveData(saveData)) {
+                this.showToast('Invalid save data format!', 'error');
+                return;
+            }
+
+            if (confirm('This will overwrite your current progress. Continue?')) {
+                localStorage.setItem(this.SAVE_KEY, saveString);
+                this.showToast('Save imported successfully! Reloading...', 'success');
+                setTimeout(() => location.reload(), 1500);
+            }
+        } catch (e) {
+            this.showToast('Invalid save string! Make sure you copied it correctly.', 'error');
+            console.error('Import error:', e);
+        }
+    }
+
+    validateSaveData(data) {
+        const requiredFields = ['resources', 'automation', 'research', 'timestamp'];
+        return requiredFields.every(field => data.hasOwnProperty(field));
+    }
+
     showPrestigeModal() {
         const modal = document.getElementById('prestige-modal');
         if (modal) modal.classList.add('show');
@@ -11947,6 +12026,28 @@ class PaperclipMaximizer {
             document.body.appendChild(particle);
             setTimeout(() => particle.remove(), 1500);
         }
+    }
+
+    trapFocus(modal) {
+        const focusableElements = modal.querySelectorAll(
+            'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
+        );
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        modal.addEventListener('keydown', (e) => {
+            if (e.key !== 'Tab') return;
+
+            if (e.shiftKey && document.activeElement === firstElement) {
+                e.preventDefault();
+                lastElement.focus();
+            } else if (!e.shiftKey && document.activeElement === lastElement) {
+                e.preventDefault();
+                firstElement.focus();
+            }
+        });
+
+        firstElement?.focus();
     }
 }
 
