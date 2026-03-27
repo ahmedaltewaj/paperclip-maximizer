@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && cp service-worker.js dist/",
     "preview": "vite preview",
     "test": "echo 'Tests: Build verification' && npm run build && echo '✓ Build successful'"
   },

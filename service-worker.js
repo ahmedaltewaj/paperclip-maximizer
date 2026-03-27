@@ -1,11 +1,11 @@
-const CACHE_NAME = 'paperclip-maximizer-v1';
+const CACHE_NAME = 'paperclip-maximizer-v1.2.0';
 const urlsToCache = [
   '/',
   '/index.html',
-  '/style.css',
-  '/main.js',
-  '/manifest.json',
-  '/icon-192.svg'
+  '/assets/index-BpfXcTd-.js',
+  '/assets/index-DeJ3zc_Z.css',
+  '/assets/icon-192-yO-6osho.svg',
+  '/assets/manifest-BWk7JkWz.json'
 ];
 
 self.addEventListener('install', (event) => {
