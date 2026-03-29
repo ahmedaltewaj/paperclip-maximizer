@@ -15,7 +15,7 @@
 | **Enabled Systems** | 23 |
 | **Build Size** | 372KB JS (77KB gzipped) |
 | **Build Status** | ✅ Passing |
-| **Game URL** | https://paperclip-maximizer.loca.lt |
+| **Game URL** | https://polite-icons-end.loca.lt |
 
 ---
 
@@ -30,7 +30,7 @@
 ### CEO Session 10: Deployment
 - ✅ Created deploy.sh
 - ✅ Created GitHub Actions workflow
-- ✅ Deployed to https://paperclip-maximizer.loca.lt
+- ✅ Deployed to https://polite-icons-end.loca.lt
 
 ### CEO Session 11: Feature Unlock Part 1
 - ✅ Enabled PetManager

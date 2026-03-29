@@ -1,6 +1,6 @@
 # 🖇️ Paperclip Maximizer v1.2.0 - RELEASE NOTES
 
-## 🎮 Play Now: https://paperclip-maximizer.loca.lt
+## 🎮 Play Now: https://polite-icons-end.loca.lt
 
 ---
 
@@ -118,4 +118,4 @@ Built with ❤️ and an unhealthy obsession with office supplies.
 
 **Ready to convert the universe?** 🌌📎
 
-[Play Now - https://paperclip-maximizer.loca.lt](https://paperclip-maximizer.loca.lt)
+[Play Now - https://polite-icons-end.loca.lt](https://polite-icons-end.loca.lt)

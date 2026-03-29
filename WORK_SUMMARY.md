@@ -8,7 +8,7 @@
 **Final State:** Maximum Feature Density Achieved  
 **Total Files Changed:** 10 core files  
 **Lines of Code:** ~19,000  
-**Live URL:** https://paperclip-maximizer.loca.lt
+**Live URL:** https://polite-icons-end.loca.lt
 
 ---
 
@@ -73,7 +73,7 @@
 ### Session 10: CEO Deployment (Agent 1c45d1e0)
 - Created deploy.sh - Multi-platform deployment script
 - Created GitHub Actions workflow for auto-deployment
-- Deployed live version: https://paperclip-maximizer.loca.lt
+- Deployed live version: https://polite-icons-end.loca.lt
 - Updated README with deployment instructions
 - Result: Game is now accessible worldwide
 

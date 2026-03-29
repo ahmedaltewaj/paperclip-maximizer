@@ -1,6 +1,6 @@
 # 🖇️ Paperclip Maximizer - Show HN
 
-**URL:** https://paperclip-maximizer.loca.lt
+**URL:** https://polite-icons-end.loca.lt
 
 ---
 
@@ -52,7 +52,7 @@ It's not just a cookie clicker with bigger numbers—it's an incremental RPG.
 
 ## Try It
 
-**https://paperclip-maximizer.loca.lt**
+**https://polite-icons-end.loca.lt**
 
 No signup. Saves locally. Free forever.
 
