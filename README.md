@@ -6,7 +6,7 @@
 
 ## 🎮 Play Now
 
-**🌐 [Live Demo](https://polite-icons-end.loca.lt)** *(Play now!)*
+**🌐 [Live Demo](https://polite-places-hunt.loca.lt)** *(Play now!)*
 
 Or run locally:
 ```bash

@@ -70,7 +70,7 @@ Sometimes the best tech stack is no tech stack.
 
 ## Tweet 6 (Play Now)
 ---
-🎮 Play for free: https://polite-icons-end.loca.lt
+🎮 Play for free: https://polite-places-hunt.loca.lt
 
 No signup required.
 Progress saves automatically.

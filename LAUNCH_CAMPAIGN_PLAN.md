@@ -4,7 +4,7 @@
 
 **Product:** Paperclip Maximizer v1.2.0  
 **Status:** GAME COMPLETE  
-**URL:** https://polite-icons-end.loca.lt  
+**URL:** https://polite-places-hunt.loca.lt  
 **Total Commits:** 29  
 **Status:** READY FOR PUBLIC LAUNCH
 
@@ -112,7 +112,7 @@
 - ✅ Save system tested
 
 **Deployment:**
-- ✅ Live URL: https://polite-icons-end.loca.lt
+- ✅ Live URL: https://polite-places-hunt.loca.lt
 - ✅ Deployment script: `deploy.sh`
 - ✅ GitHub Actions workflow ready
 - ✅ Can deploy to any static host

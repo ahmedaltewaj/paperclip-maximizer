@@ -1,6 +1,6 @@
 # 🖇️ Paperclip Maximizer - 21 Systems, Fully Featured Incremental RPG
 
-**Play Now:** https://polite-icons-end.loca.lt
+**Play Now:** https://polite-places-hunt.loca.lt
 
 ---
 
@@ -72,7 +72,7 @@ But this isn't just another cookie clicker clone. This is a **complete increment
 
 ## 🎮 Play Now
 
-**https://polite-icons-end.loca.lt**
+**https://polite-places-hunt.loca.lt**
 
 No signup required. Free to play. Progress saves automatically.
 

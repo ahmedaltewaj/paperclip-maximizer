@@ -8,7 +8,7 @@ Show HN: Paperclip Maximizer – Incremental game with 21 gameplay systems
 ## Body - Copy everything below this line:
 ---
 
-**URL:** https://polite-icons-end.loca.lt
+**URL:** https://polite-places-hunt.loca.lt
 
 I built a fully-featured incremental RPG about converting the universe into paperclips. It has 21 major gameplay systems, 61 achievements, and enough content to keep you clicking for weeks.
 
@@ -56,7 +56,7 @@ It's not just a cookie clicker with bigger numbers—it's an incremental RPG.
 
 ## Try It
 
-**https://polite-icons-end.loca.lt**
+**https://polite-places-hunt.loca.lt**
 
 No signup. Saves locally. Free forever.
 
@@ -80,7 +80,7 @@ Happy to answer questions about:
 
 1. Go to https://news.ycombinator.com/submit
 2. Title: Show HN: Paperclip Maximizer – Incremental game with 21 gameplay systems
-3. URL: https://polite-icons-end.loca.lt
+3. URL: https://polite-places-hunt.loca.lt
 4. Copy the body text above into the "Text" field
 5. Click Submit
 6. Engage with comments (HN community loves technical details)
