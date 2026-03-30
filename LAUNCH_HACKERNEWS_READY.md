@@ -8,7 +8,7 @@ Show HN: Paperclip Maximizer – Incremental game with 21 gameplay systems
 ## Body - Copy everything below this line:
 ---
 
-**URL:** https://ahmedaltewaj.github.io/paperclip-maximizer/
+**URL:** https://fluffy-groups-lick.loca.lt
 *(No password required)*
 
 I built a fully-featured incremental RPG about converting the universe into paperclips. It has 21 major gameplay systems, 61 achievements, and enough content to keep you clicking for weeks.
@@ -57,7 +57,7 @@ It's not just a cookie clicker with bigger numbers—it's an incremental RPG.
 
 ## Try It
 
-**https://ahmedaltewaj.github.io/paperclip-maximizer/**
+**https://fluffy-groups-lick.loca.lt**
 
 No signup. Saves locally. Free forever.
 
@@ -81,7 +81,7 @@ Happy to answer questions about:
 
 1. Go to https://news.ycombinator.com/submit
 2. Title: Show HN: Paperclip Maximizer – Incremental game with 21 gameplay systems
-3. URL: https://ahmedaltewaj.github.io/paperclip-maximizer/
+3. URL: https://fluffy-groups-lick.loca.lt
 4. Copy the body text above into the "Text" field
 5. Click Submit
 6. Engage with comments (HN community loves technical details)

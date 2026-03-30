@@ -4,7 +4,7 @@
 
 **Product:** Paperclip Maximizer v1.2.0  
 **Status:** GAME COMPLETE  
-**URL:** https://ahmedaltewaj.github.io/paperclip-maximizer/  
+**URL:** https://fluffy-groups-lick.loca.lt  
 **Total Commits:** 29  
 **Status:** READY FOR PUBLIC LAUNCH
 
@@ -112,7 +112,7 @@
 - ✅ Save system tested
 
 **Deployment:**
-- ✅ Live URL: https://ahmedaltewaj.github.io/paperclip-maximizer/
+- ✅ Live URL: https://fluffy-groups-lick.loca.lt
 - ✅ Deployment script: `deploy.sh`
 - ✅ GitHub Actions workflow ready
 - ✅ Can deploy to any static host

@@ -1,6 +1,6 @@
 # 🖇️ Paperclip Maximizer - Show HN
 
-**URL:** https://ahmedaltewaj.github.io/paperclip-maximizer/
+**URL:** https://fluffy-groups-lick.loca.lt
 
 ---
 
@@ -52,7 +52,7 @@ It's not just a cookie clicker with bigger numbers—it's an incremental RPG.
 
 ## Try It
 
-**https://ahmedaltewaj.github.io/paperclip-maximizer/**
+**https://fluffy-groups-lick.loca.lt**
 
 No signup. Saves locally. Free forever.
 

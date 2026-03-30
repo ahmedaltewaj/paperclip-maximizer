@@ -1,6 +1,6 @@
 # 🖇️ Paperclip Maximizer - 21 Systems, Fully Featured Incremental RPG
 
-**Play Now:** https://ahmedaltewaj.github.io/paperclip-maximizer/
+**Play Now:** https://fluffy-groups-lick.loca.lt
 
 ---
 
@@ -72,7 +72,7 @@ But this isn't just another cookie clicker clone. This is a **complete increment
 
 ## 🎮 Play Now
 
-**https://ahmedaltewaj.github.io/paperclip-maximizer/**
+**https://fluffy-groups-lick.loca.lt**
 
 No signup required. Free to play. Progress saves automatically.
 

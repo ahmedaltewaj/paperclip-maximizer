@@ -6,7 +6,7 @@
 
 ## 🎮 Play Now
 
-**🌐 [Live Demo](https://ahmedaltewaj.github.io/paperclip-maximizer/)** *(No password required)*
+**🌐 [Live Demo](https://fluffy-groups-lick.loca.lt)** *(No password required)*
 
 Or run locally:
 ```bash
