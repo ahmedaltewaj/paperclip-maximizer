@@ -1,6 +1,6 @@
 # 🖇️ Paperclip Maximizer v1.2.0 - RELEASE NOTES
 
-## 🎮 Play Now: https://polite-places-hunt.loca.lt
+## 🎮 Play Now: https://7897bf873a89575b-37-96-103-61.serveousercontent.com
 
 ---
 
@@ -118,4 +118,4 @@ Built with ❤️ and an unhealthy obsession with office supplies.
 
 **Ready to convert the universe?** 🌌📎
 
-[Play Now - https://polite-places-hunt.loca.lt](https://polite-places-hunt.loca.lt)
+[Play Now - https://7897bf873a89575b-37-96-103-61.serveousercontent.com](https://7897bf873a89575b-37-96-103-61.serveousercontent.com)

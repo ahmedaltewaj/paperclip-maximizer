@@ -6,7 +6,7 @@
 
 ## 🎮 Play Now
 
-**🌐 [Live Demo](https://wonderful-khapse-84c673.netlify.app)** *(Password: `My-Drop-Site`)*
+**🌐 [Live Demo](https://7897bf873a89575b-37-96-103-61.serveousercontent.com)** *(No password required)*
 
 Or run locally:
 ```bash
