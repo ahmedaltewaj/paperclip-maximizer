@@ -10,7 +10,7 @@
 
 🖇️ **Paperclip Maximizer** - An incremental game about converting all matter in the universe into paperclips.
 
-**Play Now:** https://7897bf873a89575b-37-96-103-61.serveousercontent.com
+**Play Now:** https://ahmedaltewaj.github.io/paperclip-maximizer/
 *(No password required)*
 
 ---
@@ -81,7 +81,7 @@ This isn't just another cookie clicker clone. This is a **complete incremental R
 
 ## 🎮 Play Now
 
-**https://7897bf873a89575b-37-96-103-61.serveousercontent.com**
+**https://ahmedaltewaj.github.io/paperclip-maximizer/**
 
 No signup required. Free to play. Progress saves automatically.
 
@@ -104,7 +104,7 @@ This started as a simple incremental game and grew into something massive. Would
 
 1. Go to https://www.reddit.com/r/incremental_games/submit
 2. Select "Link" post type
-3. URL: https://7897bf873a89575b-37-96-103-61.serveousercontent.com
+3. URL: https://ahmedaltewaj.github.io/paperclip-maximizer/
 4. Title: [Game] Paperclip Maximizer v1.2.0 - 21 Systems, Fully Featured Incremental RPG
 5. Copy the body text above into the description
 6. Click Post

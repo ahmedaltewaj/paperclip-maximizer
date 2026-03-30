@@ -15,7 +15,7 @@
 | **Enabled Systems** | 23 |
 | **Build Size** | 372KB JS (77KB gzipped) |
 | **Build Status** | ✅ Passing |
-| **Game URL** | https://7897bf873a89575b-37-96-103-61.serveousercontent.com (No password) |
+| **Game URL** | https://ahmedaltewaj.github.io/paperclip-maximizer/ (No password) |
 
 ---
 
@@ -30,7 +30,7 @@
 ### CEO Session 10: Deployment
 - ✅ Created deploy.sh
 - ✅ Created GitHub Actions workflow
-- ✅ Deployed to https://7897bf873a89575b-37-96-103-61.serveousercontent.com
+- ✅ Deployed to https://ahmedaltewaj.github.io/paperclip-maximizer/
 
 ### CEO Session 11: Feature Unlock Part 1
 - ✅ Enabled PetManager

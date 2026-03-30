@@ -70,7 +70,7 @@ Sometimes the best tech stack is no tech stack.
 
 ## Tweet 6 (Play Now)
 ---
-🎮 Play for free: https://7897bf873a89575b-37-96-103-61.serveousercontent.com
+🎮 Play for free: https://ahmedaltewaj.github.io/paperclip-maximizer/
 
 No signup required.
 Progress saves automatically.

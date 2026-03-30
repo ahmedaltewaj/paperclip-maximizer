@@ -6,7 +6,7 @@
 
 ## 🎮 Play Now
 
-**🌐 [Live Demo](https://7897bf873a89575b-37-96-103-61.serveousercontent.com)** *(No password required)*
+**🌐 [Live Demo](https://ahmedaltewaj.github.io/paperclip-maximizer/)** *(No password required)*
 
 Or run locally:
 ```bash

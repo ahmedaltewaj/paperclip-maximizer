@@ -4,7 +4,7 @@
 
 - **GitHub Repo:** https://github.com/ahmedaltewaj/paperclip-maximizer
 - **GitHub Pages:** Not yet enabled (requires manual setup)
-- **Temporary URL:** https://7897bf873a89575b-37-96-103-61.serveousercontent.com (expires ~24 hours)
+- **Temporary URL:** https://ahmedaltewaj.github.io/paperclip-maximizer/ (expires ~24 hours)
 
 ## How to Enable GitHub Pages (One-Time Setup)
 

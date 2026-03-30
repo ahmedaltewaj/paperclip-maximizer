@@ -8,7 +8,7 @@
 **Final State:** Maximum Feature Density Achieved  
 **Total Files Changed:** 10 core files  
 **Lines of Code:** ~19,000  
-**Live URL:** https://7897bf873a89575b-37-96-103-61.serveousercontent.com
+**Live URL:** https://ahmedaltewaj.github.io/paperclip-maximizer/
 
 ---
 
@@ -73,7 +73,7 @@
 ### Session 10: CEO Deployment (Agent 1c45d1e0)
 - Created deploy.sh - Multi-platform deployment script
 - Created GitHub Actions workflow for auto-deployment
-- Deployed live version: https://7897bf873a89575b-37-96-103-61.serveousercontent.com
+- Deployed live version: https://ahmedaltewaj.github.io/paperclip-maximizer/
 - Updated README with deployment instructions
 - Result: Game is now accessible worldwide
 

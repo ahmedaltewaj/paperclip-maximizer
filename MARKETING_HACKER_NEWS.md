@@ -1,6 +1,6 @@
 # 🖇️ Paperclip Maximizer - Show HN
 
-**URL:** https://7897bf873a89575b-37-96-103-61.serveousercontent.com
+**URL:** https://ahmedaltewaj.github.io/paperclip-maximizer/
 
 ---
 
@@ -52,7 +52,7 @@ It's not just a cookie clicker with bigger numbers—it's an incremental RPG.
 
 ## Try It
 
-**https://7897bf873a89575b-37-96-103-61.serveousercontent.com**
+**https://ahmedaltewaj.github.io/paperclip-maximizer/**
 
 No signup. Saves locally. Free forever.
 
