@@ -10,7 +10,8 @@
 
 🖇️ **Paperclip Maximizer** - An incremental game about converting all matter in the universe into paperclips.
 
-**Play Now:** https://polite-places-hunt.loca.lt
+**Play Now:** https://wonderful-khapse-84c673.netlify.app
+*(Password: `My-Drop-Site`)*
 
 ---
 
@@ -103,7 +104,7 @@ This started as a simple incremental game and grew into something massive. Would
 
 1. Go to https://www.reddit.com/r/incremental_games/submit
 2. Select "Link" post type
-3. URL: https://polite-places-hunt.loca.lt
+3. URL: https://wonderful-khapse-84c673.netlify.app
 4. Title: [Game] Paperclip Maximizer v1.2.0 - 21 Systems, Fully Featured Incremental RPG
 5. Copy the body text above into the description
 6. Click Post

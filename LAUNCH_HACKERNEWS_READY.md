@@ -8,7 +8,8 @@ Show HN: Paperclip Maximizer – Incremental game with 21 gameplay systems
 ## Body - Copy everything below this line:
 ---
 
-**URL:** https://polite-places-hunt.loca.lt
+**URL:** https://wonderful-khapse-84c673.netlify.app
+*(Password: `My-Drop-Site`)*
 
 I built a fully-featured incremental RPG about converting the universe into paperclips. It has 21 major gameplay systems, 61 achievements, and enough content to keep you clicking for weeks.
 
@@ -80,7 +81,7 @@ Happy to answer questions about:
 
 1. Go to https://news.ycombinator.com/submit
 2. Title: Show HN: Paperclip Maximizer – Incremental game with 21 gameplay systems
-3. URL: https://polite-places-hunt.loca.lt
+3. URL: https://wonderful-khapse-84c673.netlify.app
 4. Copy the body text above into the "Text" field
 5. Click Submit
 6. Engage with comments (HN community loves technical details)

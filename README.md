@@ -6,7 +6,7 @@
 
 ## 🎮 Play Now
 
-**🌐 [Live Demo](https://polite-places-hunt.loca.lt)** *(Play now!)*
+**🌐 [Live Demo](https://wonderful-khapse-84c673.netlify.app)** *(Password: `My-Drop-Site`)*
 
 Or run locally:
 ```bash

@@ -15,7 +15,7 @@
 | **Enabled Systems** | 23 |
 | **Build Size** | 372KB JS (77KB gzipped) |
 | **Build Status** | ✅ Passing |
-| **Game URL** | https://polite-places-hunt.loca.lt |
+| **Game URL** | https://wonderful-khapse-84c673.netlify.app (Password: My-Drop-Site) |
 
 ---
 
