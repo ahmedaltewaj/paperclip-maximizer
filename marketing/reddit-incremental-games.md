@@ -8,7 +8,7 @@ Hey r/incremental_games!
 
 I've been working on a feature-complete incremental game inspired by Universal Paperclips, and it's finally ready to share. Presenting **Paperclip Maximizer** - a game about converting all matter in the universe into paperclips.
 
-**🎮 Play now: https://fluffy-groups-lick.loca.lt**
+**🎮 Play now: https://pink-numbers-rule.loca.lt**
 
 **What makes it different:**
 

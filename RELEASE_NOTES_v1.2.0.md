@@ -1,6 +1,6 @@
 # 🖇️ Paperclip Maximizer v1.2.0 - RELEASE NOTES
 
-## 🎮 Play Now: https://fluffy-groups-lick.loca.lt
+## 🎮 Play Now: https://pink-numbers-rule.loca.lt
 
 ---
 
@@ -118,4 +118,4 @@ Built with ❤️ and an unhealthy obsession with office supplies.
 
 **Ready to convert the universe?** 🌌📎
 
-[Play Now - https://fluffy-groups-lick.loca.lt](https://fluffy-groups-lick.loca.lt)
+[Play Now - https://pink-numbers-rule.loca.lt](https://pink-numbers-rule.loca.lt)

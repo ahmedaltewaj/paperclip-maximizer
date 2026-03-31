@@ -1,6 +1,6 @@
 # 🖇️ Paperclip Maximizer - Show HN
 
-**URL:** https://fluffy-groups-lick.loca.lt
+**URL:** https://pink-numbers-rule.loca.lt
 
 ---
 
@@ -52,7 +52,7 @@ It's not just a cookie clicker with bigger numbers—it's an incremental RPG.
 
 ## Try It
 
-**https://fluffy-groups-lick.loca.lt**
+**https://pink-numbers-rule.loca.lt**
 
 No signup. Saves locally. Free forever.
 

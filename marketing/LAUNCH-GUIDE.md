@@ -2,7 +2,7 @@
 
 ## Game is Ready
 
-**Live URL:** https://fluffy-groups-lick.loca.lt  
+**Live URL:** https://pink-numbers-rule.loca.lt  
 **GitHub:** https://github.com/ahmedaltewaj/paperclip-maximizer  
 **Version:** 1.2.0 COMPLETE (21 systems, 61 achievements)
 
@@ -24,7 +24,7 @@ Hey r/incremental_games!
 
 I've been working on a feature-complete incremental game inspired by Universal Paperclips, and it's finally ready to share. Presenting **Paperclip Maximizer** - a game about converting all matter in the universe into paperclips.
 
-**🎮 Play now: https://fluffy-groups-lick.loca.lt**
+**🎮 Play now: https://pink-numbers-rule.loca.lt**
 
 **What makes it different:**
 
@@ -89,7 +89,7 @@ Show HN: Paperclip Maximizer – A feature-complete incremental game in vanilla 
 ```markdown
 Paperclip Maximizer is a browser-based incremental game about converting all matter in the universe into paperclips. Built as a love letter to Universal Paperclips, but with a focus on maximum feature density and modern web development practices.
 
-**Live demo: https://fluffy-groups-lick.loca.lt**
+**Live demo: https://pink-numbers-rule.loca.lt**
 
 **GitHub: https://github.com/ahmedaltewaj/paperclip-maximizer**
 
@@ -168,7 +168,7 @@ A feature-complete incremental game with 21 major systems, 61 achievements, and 
 
 Convert all matter in the universe into paperclips. Open source.
 
-Play now: https://fluffy-groups-lick.loca.lt
+Play now: https://pink-numbers-rule.loca.lt
 GitHub: https://github.com/ahmedaltewaj/paperclip-maximizer
 
 #gamedev #incremental #javascript #opensource

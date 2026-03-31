@@ -119,7 +119,7 @@ surge --domain paperclip-maximizer.surge.sh
 
 ## Current Temporary Solution
 
-**Localtunnel:** https://fluffy-groups-lick.loca.lt
+**Localtunnel:** https://pink-numbers-rule.loca.lt
 
 - ✅ Working now
 - ⚠️ URL changes if tunnel restarts
@@ -153,7 +153,7 @@ Run this command to update all URLs:
 ```bash
 # Replace OLD_URL with your temporary URL
 # Replace NEW_URL with your permanent URL
-find . -name "*.md" -o -name "*.json" | xargs sed -i 's|fluffy-groups-lick.loca.lt|your-new-url.com|g'
+find . -name "*.md" -o -name "*.json" | xargs sed -i 's|pink-numbers-rule.loca.lt|your-new-url.com|g'
 ```
 
 ---

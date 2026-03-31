@@ -6,7 +6,7 @@
 
 ## 🎮 Play Now
 
-**🌐 [Live Demo](https://fluffy-groups-lick.loca.lt)** *(No password required)*
+**🌐 [Live Demo](https://pink-numbers-rule.loca.lt)** *(No password required)*
 
 Or run locally:
 ```bash

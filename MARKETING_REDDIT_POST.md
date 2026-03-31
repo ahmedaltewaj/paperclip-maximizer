@@ -1,6 +1,6 @@
 # 🖇️ Paperclip Maximizer - 21 Systems, Fully Featured Incremental RPG
 
-**Play Now:** https://fluffy-groups-lick.loca.lt
+**Play Now:** https://pink-numbers-rule.loca.lt
 
 ---
 
@@ -72,7 +72,7 @@ But this isn't just another cookie clicker clone. This is a **complete increment
 
 ## 🎮 Play Now
 
-**https://fluffy-groups-lick.loca.lt**
+**https://pink-numbers-rule.loca.lt**
 
 No signup required. Free to play. Progress saves automatically.
 

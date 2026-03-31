@@ -70,7 +70,7 @@ Sometimes the best tech stack is no tech stack.
 
 ## Tweet 6 (Play Now)
 ---
-🎮 Play for free: https://fluffy-groups-lick.loca.lt
+🎮 Play for free: https://pink-numbers-rule.loca.lt
 
 No signup required.
 Progress saves automatically.

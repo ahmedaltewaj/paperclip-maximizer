@@ -15,7 +15,7 @@
 | **Enabled Systems** | 23 |
 | **Build Size** | 372KB JS (77KB gzipped) |
 | **Build Status** | ✅ Passing |
-| **Game URL** | https://fluffy-groups-lick.loca.lt (No password) |
+| **Game URL** | https://pink-numbers-rule.loca.lt (No password) |
 
 ---
 
@@ -30,7 +30,7 @@
 ### CEO Session 10: Deployment
 - ✅ Created deploy.sh
 - ✅ Created GitHub Actions workflow
-- ✅ Deployed to https://fluffy-groups-lick.loca.lt
+- ✅ Deployed to https://pink-numbers-rule.loca.lt
 
 ### CEO Session 11: Feature Unlock Part 1
 - ✅ Enabled PetManager

@@ -6,7 +6,7 @@ Show HN: Paperclip Maximizer – A feature-complete incremental game in vanilla 
 ## Post Body
 Paperclip Maximizer is a browser-based incremental game about converting all matter in the universe into paperclips. Built as a love letter to Universal Paperclips, but with a focus on maximum feature density and modern web development practices.
 
-**Live demo: https://fluffy-groups-lick.loca.lt**
+**Live demo: https://pink-numbers-rule.loca.lt**
 
 **GitHub: https://github.com/ahmedaltewaj/paperclip-maximizer**
 
